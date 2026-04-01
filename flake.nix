@@ -98,12 +98,14 @@
             {
               src,
               version,
+              vendorHash
             }:
             pkgs.buildGoModule {
               pname = "golangci-lint";
               inherit version src;
 
-              vendorHash = null;
+              # OS+arch-independent value
+              inherit vendorHash; # use pkgs.lib.fakeHash; then try to build and copy from error e.g. nix build .#packages.aarch64-darwin.golangci-lint-v2
 
               subPackages = [ "cmd/golangci-lint" ];
 
@@ -143,11 +145,13 @@
           golangci_lint_v1_from_source = mkGolangciLintFromSourceDerivation {
             src = inputs.golangci1-src;
             version = "1.64.8";
+            vendorHash = "sha256-i7ec4U4xXmRvHbsDiuBjbQ0xP7xRuilky3gi+dT1H10=";
           };
 
           golangci_lint_v2_from_source = mkGolangciLintFromSourceDerivation {
             src = inputs.golangci2-src;
             version = "2.5.0";
+            vendorHash = "sha256-QEYbFz7SJxLMblkNqaRLDn/PO+mtSPvNYiEUmZh0sLQ=";
           };
 
           mkDefaultLintDerivation =
@@ -190,10 +194,10 @@
         in
         {
           packages = {
-            golangci-lint-v1 = golangci_lint_v1_from_prebuilt;
-            golangci-lint-v2 = golangci_lint_v2_from_prebuilt;
-            golangci-lint = golangci_lint_v2_default;
-            default = golangci_lint_v2_default;
+            golangci-lint-v1 = golangci_lint_v1_from_source; # nix build .#packages.aarch64-darwin.golangci-lint-v1
+            golangci-lint-v2 = golangci_lint_v2_from_source; # nix build .#packages.aarch64-darwin.golangci-lint-v2
+            golangci-lint = golangci_lint_v2_default; # nix build .#packages.aarch64-darwin.golangci-lint
+            default = golangci_lint_v2_default; # nix build .#packages.aarch64-darwin.default
           };
 
           devShells = {

@@ -1,0 +1,80 @@
+{
+  "nodes": {
+    "golangci1-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742230442,
+        "narHash": "sha256-H7IdXAleyzJeDFviISitAVDNJmiwrMysYcGm6vAoWso=",
+        "owner": "golangci",
+        "repo": "golangci-lint",
+        "rev": "8b37f14162043f908949f1b363d061dc9ba713c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "golangci",
+        "ref": "v1.64.8",
+        "repo": "golangci-lint",
+        "type": "github"
+      }
+    },
+    "golangci2-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758480793,
+        "narHash": "sha256-7dHr7cd+yYofIb+yR2kKfj0k0onLH2W/YuxNor7zPeo=",
+        "owner": "golangci",
+        "repo": "golangci-lint",
+        "rev": "ff63786c30d6c2926f99d677ab2ecf089e9390ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "golangci",
+        "ref": "v2.5.0",
+        "repo": "golangci-lint",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1768649915,
+        "narHash": "sha256-jc21hKogFnxU7KXSVTRmxC7u5D4RHwm9BAvDf5/Z1Uo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3e3f3c7f9977dc123c23ee21e8085ed63daf8c37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1774709303,
+        "narHash": "sha256-D3Q07BbIA2KnTcSXIqqu9P586uWxN74zNoCH3h2ESHg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "8110df5ad7abf5d4c0f6fb0f8f978390e77f9685",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "golangci1-src": "golangci1-src",
+        "golangci2-src": "golangci2-src",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
